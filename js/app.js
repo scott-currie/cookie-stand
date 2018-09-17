@@ -1,5 +1,5 @@
 'use strict';
-// var locations = [
+
 var store1 = {
   name: '1st and Pike',
   minCust: 23,
@@ -22,8 +22,7 @@ var store1 = {
     }
     console.log('sales: ', sales);
     this.cookieSales = sales;
-  },
-  // cookieSales: this.getSalesByHour(this.minCust, this.maxCust, this.avgCookiesPerSale)
+  }
 };
 
 var store2 = {
@@ -36,6 +35,7 @@ var store2 = {
     console.log('randInt:', randInt);
     return randInt;
   },
+  salesByHour: [],
   getSalesByHour: function() {
     console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
     var sales = [];
@@ -47,8 +47,7 @@ var store2 = {
     }
     console.log('sales: ', sales);
     this.cookieSales = sales;
-  },
-  cookieSales: this.getSalesByHour(this.minCust, this.maxCust, this.avgCookiesPerSale)
+  }
 };
 
 var store3 = {
@@ -61,6 +60,7 @@ var store3 = {
     console.log('randInt:', randInt);
     return randInt;
   },
+  salesByHour: [],
   getSalesByHour: function() {
     console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
     var sales = [];
@@ -72,8 +72,7 @@ var store3 = {
     }
     console.log('sales: ', sales);
     this.cookieSales = sales;
-  },
-  cookieSales: this.getSalesByHour(this.minCust, this.maxCust, this.avgCookiesPerSale)
+  }
 };
 
 var store4 = {
@@ -86,6 +85,7 @@ var store4 = {
     console.log('randInt:', randInt);
     return randInt;
   },
+  salesByHour: [],
   getSalesByHour: function() {
     console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
     var sales = [];
@@ -97,8 +97,7 @@ var store4 = {
     }
     console.log('sales: ', sales);
     this.cookieSales = sales;
-  },
-  cookieSales: this.getSalesByHour(this.minCust, this.maxCust, this.avgCookiesPerSale)
+  }
 };
 
 var store5 = {
@@ -111,6 +110,7 @@ var store5 = {
     console.log('randInt:', randInt);
     return randInt;
   },
+  salesByHour: [],
   getSalesByHour: function() {
     console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
     var sales = [];
@@ -122,34 +122,10 @@ var store5 = {
     }
     console.log('sales: ', sales);
     this.cookieSales = sales;
-  },
-  cookieSales: this.getSalesByHour(this.minCust, this.maxCust, this.avgCookiesPerSale)
+  }
 };
 var locations = [store1, store2, store3, store4, store5];
 
-// function getRandomInRange(min, max) {
-//   // console.log(min, max);
-//   // var randInt = Math.ceil(Math.random() * (max + 1 - min));
-//   var randInt = Math.ceil(Math.random() * (max - min));
-//   // console.log('randInt:', randInt);
-//   return randInt;
-// }
-
-// function getSalesByHour(min, max, avgSale) {
-//   // console.log(min, max, avgSale);
-//   var sales = [];
-//   var salesThisHour = 0;
-//   for (var i = 0; i < 15; i++) {
-//     // console.log(min, max, avgSale);
-//     salesThisHour = getRandomInRange(min, max) * avgSale;
-//     // console.log(salesThisHour);
-//     sales.push(salesThisHour);
-//   }
-//   return sales;
-// }
-
-// console.log('Is anything happening at all?');
-// store1.getSalesByHour();
 for (var i = 0; i < locations.length; i++) {
   var loc = locations[i];
   loc.cookieSales = loc.getSalesByHour();
