@@ -6,8 +6,8 @@ var store1 = {
   maxCust: 65,
   avgCookiesPerSale: 6.3,
   getRandomInRange: function(min, max) {
-    var randInt = Math.ceil(Math.random() * (max - min));
-    // console.log('randInt:', randInt);
+    var randInt = Math.ceil(Math.random() * (max - min) + min);
+    console.log(min, max, randInt);
     return randInt;
   },
   cookieSales: [],
@@ -23,6 +23,10 @@ var store1 = {
     // console.log('sales: ', sales);
     this.cookieSales = sales;
   }
+  // toConsole: function() {
+  //   var outputLine = 'name: ' + this.name + ', ' + 'minCust: ' + minCust +
+  //     'maxCust'
+  // }
 };
 
 var store2 = {
@@ -31,8 +35,8 @@ var store2 = {
   maxCust: 24,
   avgCookiesPerSale: 1.2,
   getRandomInRange: function(min, max) {
-    var randInt = Math.ceil(Math.random() * (max - min));
-    // console.log('randInt:', randInt);
+    var randInt = Math.ceil(Math.random() * (max - min) + min);
+    console.log(min, max, randInt);
     return randInt;
   },
   cookieSales: [],
@@ -56,8 +60,8 @@ var store3 = {
   maxCust: 38,
   avgCookiesPerSale: 3.7,
   getRandomInRange: function(min, max) {
-    var randInt = Math.ceil(Math.random() * (max - min));
-    // console.log('randInt:', randInt);
+    var randInt = Math.ceil(Math.random() * (max - min) + min);
+    console.log(min, max, randInt);
     return randInt;
   },
   cookieSales: [],
@@ -81,8 +85,8 @@ var store4 = {
   maxCust: 38,
   avgCookiesPerSale: 2.3,
   getRandomInRange: function(min, max) {
-    var randInt = Math.ceil(Math.random() * (max - min));
-    // console.log('randInt:', randInt);
+    var randInt = Math.ceil(Math.random() * (max - min) + min);
+    console.log(min, max, randInt);
     return randInt;
   },
   cookieSales: [],
@@ -107,7 +111,7 @@ var store5 = {
   avgCookiesPerSale: 6.3,
   getRandomInRange: function(min, max) {
     var randInt = Math.ceil(Math.random() * (max - min + 1) + min);
-    // console.log('randInt:', randInt);
+    console.log(min, max, randInt);
     return randInt;
   },
   cookieSales: [],
