@@ -90,7 +90,7 @@ function makeTableBody(tableId, tBodyId) {
 function makeTableFoot(tableId, tFootId, rowData) {
   // find our table
   var table = document.getElementById(tableId);
-  console.log(table)
+  console.log(table);
   // create a new foot element
   var newFoot = document.createElement('tfoot');
   newFoot.setAttribute('id', tFootId);
@@ -146,7 +146,6 @@ function getHourlyTotals(stores) {
     for (var j = 0; j < stores.length; j++) {
       total += stores[j].cookieSales[i];
     }
-    console.log(total);
     hourlyTotals.push(total);
   }
   return hourlyTotals;
@@ -155,7 +154,6 @@ function getHourlyTotals(stores) {
 makeTableHead('tableArea', 'salesTable', 'salesTableHead');
 makeTableBody('salesTable', 'salesTableBody');
 var stores = getAllStoreSales();
-// console.log(stores);
 renderResults(stores);
 var hourlyTotals = getHourlyTotals(stores);
 makeTableFoot('salesTable', 'salesTableFoot', hourlyTotals);
