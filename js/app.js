@@ -10,9 +10,6 @@ function Store(name, minCust, maxCust, avgSale) {
   this.getRandomInRange = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  this.render = function() {
-    //render stuff
-  };
   this.cookieSales = []; // holds our results
   this.totalSales = 0;
   this.getSalesByHour = function() {
@@ -23,6 +20,53 @@ function Store(name, minCust, maxCust, avgSale) {
       this.totalSales += salesThisHour;
     }
   };
+  this.render = function() {
+    for (var i = 0; i < locations.length; i++) {
+      // figure out which element id to look for
+      var listId = 'store' + (i + 1);
+      // get the ul with the correct id
+      var storeList = document.getElementById(listId);
+      // set ul text to location name
+      storeList.textContent = loc.name;
+      // loop through cookieSales and create a new child li for each item
+      for (var j = 0; j < loc.cookieSales.length; j++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
+        storeList.appendChild(listItem);
+      }
+      listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
+    }
+  };
+}
+
+function makeTableHead() {
+  // select the div where our table goes
+  var tableArea = document.getElementById('tableArea');
+  // create the new table element
+  var newTable = document.createElement('table');
+  //append newTable to tableArea
+  tableArea.appendChild(newTable);
+  // create new head element
+  var newHead = document.createElement('thead');
+  //append newHead to newTable
+  newTable.appendChild(newHead);
+  // create an header row
+  var newRow = document.createElement('tr');
+  // create empty cell
+  var newCell = document.createElement('td');
+  // append empty newCell to newRow
+  newRow.appendChild(newCell);
+  for (var i = 0; i < hours.length; i++) {
+    newCell = document.createElement('td');
+    newCell.textContent = hours[i];
+    newRow.appendChild(newCell);
+  }
+  // append newRow to newHead
+  newHead.appendChild(newRow);
+}
+
+function makeTableFoot() {
+
 }
 
 // data for creating Store objects
@@ -34,6 +78,8 @@ var locationData = [
   ['Alki', 23, 65, 6.3]
 ];
 
+makeTableHead();
+
 // locations will hold the Store objects
 var locations = [];
 // stepping through locatioData
@@ -42,24 +88,8 @@ for (let i = 0; i < locationData.length; i++) {
   locations.push(new Store(locationData[0], locationData[1], locationData[2], locationData[3]));
   // I hoped to have the constructor for Store do this the IIFE way, but that's not working yet.
   locations[i].getSalesByHour();
+  locations[i].render();
 }
 
 
-// for (var i = 0; i < locations.length; i++) {
-//   var loc = locations[i]; // get a nicer reference to our location object
-//   // do the sales calculation
-//   loc.getSalesByHour();
-//   // figure out which element id to look for
-//   var listId = 'store' + (i + 1);
-//   // get the ul with the correct id
-//   var storeList = document.getElementById(listId);
-//   // set ul text to location name
-//   storeList.textContent = loc.name;
-//   // loop through cookieSales and create a new child li for each item
-//   for (var j = 0; j < loc.cookieSales.length; j++) {
-//     var listItem = document.createElement('li');
-//     listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
-//     storeList.appendChild(listItem);
-//   }
-//   listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
-// }
+
