@@ -21,21 +21,24 @@ function Store(name, minCust, maxCust, avgSale) {
     }
   };
   this.render = function() {
-    for (var i = 0; i < locations.length; i++) {
-      // figure out which element id to look for
-      var listId = 'store' + (i + 1);
-      // get the ul with the correct id
-      var storeList = document.getElementById(listId);
-      // set ul text to location name
-      storeList.textContent = loc.name;
-      // loop through cookieSales and create a new child li for each item
-      for (var j = 0; j < loc.cookieSales.length; j++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
-        storeList.appendChild(listItem);
-      }
-      listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
-    }
+    // get a reference to our table
+    var salesTable = document.getElementById('salesTable');
+    console.log(salesTable);
+
+      // // figure out which element id to look for
+      // var listId = 'store' + (i + 1);
+      // // get the ul with the correct id
+      // var storeList = document.getElementById(listId);
+      // // set ul text to location name
+      // storeList.textContent = loc.name;
+      // // loop through cookieSales and create a new child li for each item
+      // for (var j = 0; j < loc.cookieSales.length; j++) {
+      //   var listItem = document.createElement('li');
+      //   listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
+      //   storeList.appendChild(listItem);
+      // }
+      // listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
+    
   };
 }
 
@@ -44,6 +47,7 @@ function makeTableHead() {
   var tableArea = document.getElementById('tableArea');
   // create the new table element
   var newTable = document.createElement('table');
+  newTable.setAttribute('id', 'salesTable');
   //append newTable to tableArea
   tableArea.appendChild(newTable);
   // create new head element
