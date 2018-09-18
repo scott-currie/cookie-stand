@@ -5,19 +5,21 @@ var store1 = {
   minCust: 23,
   maxCust: 65,
   avgCookiesPerSale: 6.3,
+  totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],  // holds our results
+  cookieSales: [], // holds our results
   getSalesByHour: function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
       this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
     }
   }
 };
@@ -27,19 +29,21 @@ var store2 = {
   minCust: 3,
   maxCust: 24,
   avgCookiesPerSale: 1.2,
+  totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],  // holds our results
+  cookieSales: [], // holds our results
   getSalesByHour: function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
       this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
     }
   }
 };
@@ -49,19 +53,21 @@ var store3 = {
   minCust: 11,
   maxCust: 38,
   avgCookiesPerSale: 3.7,
+  totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],  // holds our results
+  cookieSales: [], // holds our results
   getSalesByHour: function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
       this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
     }
   }
 };
@@ -71,19 +77,21 @@ var store4 = {
   minCust: 20,
   maxCust: 38,
   avgCookiesPerSale: 2.3,
+  totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],  // holds our results
+  cookieSales: [], // holds our results
   getSalesByHour: function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
       this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
     }
   }
 };
@@ -93,19 +101,21 @@ var store5 = {
   minCust: 23,
   maxCust: 65,
   avgCookiesPerSale: 6.3,
+  totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],  // holds our results
+  cookieSales: [], // holds our results
   getSalesByHour: function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
       this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
     }
   }
 };
@@ -129,4 +139,5 @@ for (var i = 0; i < locations.length; i++) {
     listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
     storeList.appendChild(listItem);
   }
+  listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
 }
