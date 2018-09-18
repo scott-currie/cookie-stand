@@ -1,12 +1,12 @@
 'use strict';
 
-var store = function(name, minCust, maxCust, avgSale) {
+var Store = function(name, minCust, maxCust, avgSale) {
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgSale = avgSale;
   this.getRandInRange = function() {
-    //random logic
+    //random logi
   };
   this.render = function() {
     //render stuff
@@ -31,127 +31,11 @@ var locationData = [
   ['Alki', 23, 65, 6.3]
 ];
 
-var locations = [
-  {
-    name: '1st and Pike',
-    minCust: 23,
-    maxCust: 65,
-    avgCookiesPerSale: 6.3,
-    totalSales: 0,
-    getRandomInRange: function(min, max) {
-      // return an int between min and max
-      var randInt = Math.ceil(Math.random() * (max - min) + min);
-      console.log(min, max, randInt);
-      return randInt;
-    },
-    cookieSales: [], // holds our results
-    getSalesByHour: function() {
-      // loop through all 15 hours and add the randomized sales to cookieSales
-      var salesThisHour = 0;
-      for (var i = 0; i < 15; i++) {
-        salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-        this.cookieSales.push(Math.round(salesThisHour));
-        this.totalSales += salesThisHour;
-      }
-    }
-  },
+var locations = [];
 
-  {
-    name: 'SeaTac Airport',
-    minCust: 3,
-    maxCust: 24,
-    avgCookiesPerSale: 1.2,
-    totalSales: 0,
-    getRandomInRange: function(min, max) {
-      // return an int between min and max
-      var randInt = Math.ceil(Math.random() * (max - min) + min);
-      console.log(min, max, randInt);
-      return randInt;
-    },
-    cookieSales: [], // holds our results
-    getSalesByHour: function() {
-      // loop through all 15 hours and add the randomized sales to cookieSales
-      var salesThisHour = 0;
-      for (var i = 0; i < 15; i++) {
-        salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-        this.cookieSales.push(Math.round(salesThisHour));
-        this.totalSales += salesThisHour;
-      }
-    }
-  },
-
-  {
-    name: 'Seattle Center',
-    minCust: 11,
-    maxCust: 38,
-    avgCookiesPerSale: 3.7,
-    totalSales: 0,
-    getRandomInRange: function(min, max) {
-      // return an int between min and max
-      var randInt = Math.ceil(Math.random() * (max - min) + min);
-      console.log(min, max, randInt);
-      return randInt;
-    },
-    cookieSales: [], // holds our results
-    getSalesByHour: function() {
-      // loop through all 15 hours and add the randomized sales to cookieSales
-      var salesThisHour = 0;
-      for (var i = 0; i < 15; i++) {
-        salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-        this.cookieSales.push(Math.round(salesThisHour));
-        this.totalSales += salesThisHour;
-      }
-    }
-  },
-
-  {
-    name: 'Capitol Hill',
-    minCust: 20,
-    maxCust: 38,
-    avgCookiesPerSale: 2.3,
-    totalSales: 0,
-    getRandomInRange: function(min, max) {
-      // return an int between min and max
-      var randInt = Math.ceil(Math.random() * (max - min) + min);
-      console.log(min, max, randInt);
-      return randInt;
-    },
-    cookieSales: [], // holds our results
-    getSalesByHour: function() {
-      // loop through all 15 hours and add the randomized sales to cookieSales
-      var salesThisHour = 0;
-      for (var i = 0; i < 15; i++) {
-        salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-        this.cookieSales.push(Math.round(salesThisHour));
-        this.totalSales += salesThisHour;
-      }
-    }
-  },
-
-  {
-    name: 'Alki',
-    minCust: 23,
-    maxCust: 65,
-    avgCookiesPerSale: 6.3,
-    totalSales: 0,
-    getRandomInRange: function(min, max) {
-      // return an int between min and max
-      var randInt = Math.ceil(Math.random() * (max - min) + min);
-      console.log(min, max, randInt);
-      return randInt;
-    },
-    cookieSales: [], // holds our results
-    getSalesByHour: function() {
-      // loop through all 15 hours and add the randomized sales to cookieSales
-      var salesThisHour = 0;
-      for (var i = 0; i < 15; i++) {
-        salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-        this.cookieSales.push(Math.round(salesThisHour));
-        this.totalSales += salesThisHour;
-      }
-    }
-  }
-];
+for (let i = 0; i < locationData.length; i++) {
+  locations.push(Store(locationData[0], locationData[1], locationData[2], locationData[3]));
+}
 
 var hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm', '2pm', '3pm','4pm', '5pm', '6pm', '7pm', '8pm'];
 
