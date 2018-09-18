@@ -87,14 +87,33 @@ function makeTableBody(tableId, tBodyId) {
   salesTable.appendChild(newTableBody);
 }
 
-function makeTableFoot(tableId, tFootId) {
+function makeTableFoot(tableId, tFootId, rowData) {
   // find our table
-  var salesTable = document.getElementById(tableId);
+  var table = document.getElementById(tableId);
+  console.log(table)
   // create a new foot element
   var newFoot = document.createElement('tfoot');
   newFoot.setAttribute('id', tFootId);
-  // append newFoot to salesTable
-  salesTable.appendChild(newFoot);
+  // append newFoot to table
+  table.appendChild(newFoot);
+  // create a new row
+  var newRow = document.createElement('tr');
+  // append newRow to newFoot
+  newFoot.appendChild(newRow);
+  // create a new cell with Totals as textContent
+  var newCell = document.createElement('td');
+  newCell.textContent = 'Totals';
+  //append newCell to newRow
+  newRow.appendChild(newCell);
+  // loop over rowData, creating a new td for each one
+  for (let i = 0; i < rowData.length; i++) {
+    // make a new td element with textContent equal the current value of rowData
+    newCell = document.createElement('td');
+    newCell.textContent = rowData[i];
+    // append newCell to newRow
+    newRow.appendChild(newCell);
+  }
+
 }
 
 function getAllStoreSales() {
@@ -118,10 +137,27 @@ function renderResults(stores) {
   }
 }
 
+function getHourlyTotals(stores) {
+  let hourlyTotals = [];
+  // loop through each hour
+  for (var i = 0; i < hours.length; i++) {
+    var total = 0;
+    // in each hour, loop through each store, then add that hour's sales at that store to total
+    for (var j = 0; j < stores.length; j++) {
+      total += stores[j].cookieSales[i];
+    }
+    console.log(total);
+    hourlyTotals.push(total);
+  }
+  return hourlyTotals;
+}
+
 makeTableHead('tableArea', 'salesTable', 'salesTableHead');
 makeTableBody('salesTable', 'salesTableBody');
 var stores = getAllStoreSales();
+// console.log(stores);
 renderResults(stores);
-makeTableFoot('salesTable', 'salesTableFoot');
+var hourlyTotals = getHourlyTotals(stores);
+makeTableFoot('salesTable', 'salesTableFoot', hourlyTotals);
 
 // Let's try to stretch!
