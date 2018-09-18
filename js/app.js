@@ -109,10 +109,17 @@ function renderResults(stores) {
 }
 
 function makeTableFoot() {
-
+  // find our table
+  var salesTable = document.getElementById('salesTable');
+  // create a new foot element
+  var newFoot = document.createElement('tfoot');
+  newFoot.setAttribute('id', 'salesTableFoot');
+  // append newFoot to salesTable
+  salesTable.appendChild(newFoot);
 }
 
 makeTableHead();
 makeTableBody();
 var stores = getAllStoreSales();
 renderResults(stores);
+makeTableFoot();
