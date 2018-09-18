@@ -6,27 +6,20 @@ var store1 = {
   maxCust: 65,
   avgCookiesPerSale: 6.3,
   getRandomInRange: function(min, max) {
+    // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],
+  cookieSales: [],  // holds our results
   getSalesByHour: function() {
-    // console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
-    var sales = [];
+    // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-      // console.log('salesThisHour', salesThisHour);
-      sales.push(Math.round(salesThisHour));
+      this.cookieSales.push(Math.round(salesThisHour));
     }
-    // console.log('sales: ', sales);
-    this.cookieSales = sales;
   }
-  // toConsole: function() {
-  //   var outputLine = 'name: ' + this.name + ', ' + 'minCust: ' + minCust +
-  //     'maxCust'
-  // }
 };
 
 var store2 = {
@@ -35,22 +28,19 @@ var store2 = {
   maxCust: 24,
   avgCookiesPerSale: 1.2,
   getRandomInRange: function(min, max) {
+    // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],
+  cookieSales: [],  // holds our results
   getSalesByHour: function() {
-    // console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
-    var sales = [];
+    // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-      // console.log('salesThisHour', salesThisHour);
-      sales.push(Math.round(salesThisHour));
+      this.cookieSales.push(Math.round(salesThisHour));
     }
-    // console.log('sales: ', sales);
-    this.cookieSales = sales;
   }
 };
 
@@ -60,22 +50,19 @@ var store3 = {
   maxCust: 38,
   avgCookiesPerSale: 3.7,
   getRandomInRange: function(min, max) {
+    // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],
+  cookieSales: [],  // holds our results
   getSalesByHour: function() {
-    // console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
-    var sales = [];
+    // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-      // console.log('salesThisHour', salesThisHour);
-      sales.push(Math.round(salesThisHour));
+      this.cookieSales.push(Math.round(salesThisHour));
     }
-    // console.log('sales: ', sales);
-    this.cookieSales = sales;
   }
 };
 
@@ -85,22 +72,19 @@ var store4 = {
   maxCust: 38,
   avgCookiesPerSale: 2.3,
   getRandomInRange: function(min, max) {
+    // return an int between min and max
     var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],
+  cookieSales: [],  // holds our results
   getSalesByHour: function() {
-    // console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
-    var sales = [];
+    // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-      // console.log('salesThisHour', salesThisHour);
-      sales.push(Math.round(salesThisHour));
+      this.cookieSales.push(Math.round(salesThisHour));
     }
-    // console.log('sales: ', sales);
-    this.cookieSales = sales;
   }
 };
 
@@ -110,48 +94,39 @@ var store5 = {
   maxCust: 65,
   avgCookiesPerSale: 6.3,
   getRandomInRange: function(min, max) {
-    var randInt = Math.ceil(Math.random() * (max - min + 1) + min);
+    // return an int between min and max
+    var randInt = Math.ceil(Math.random() * (max - min) + min);
     console.log(min, max, randInt);
     return randInt;
   },
-  cookieSales: [],
+  cookieSales: [],  // holds our results
   getSalesByHour: function() {
-    // console.log('this: ', this.minCust, this.maxCust, this.avgCookiesPerSale);
-    var sales = [];
+    // loop through all 15 hours and add the randomized sales to cookieSales
     var salesThisHour = 0;
     for (var i = 0; i < 15; i++) {
       salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
-      // console.log('salesThisHour', salesThisHour);
-      sales.push(Math.round(salesThisHour));
+      this.cookieSales.push(Math.round(salesThisHour));
     }
-    // console.log('sales: ', sales);
-    this.cookieSales = sales;
   }
 };
+
 var locations = [store1, store2, store3, store4, store5];
 var hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm', '2pm', '3pm','4pm', '5pm', '6pm', '7pm', '8pm'];
+
 for (var i = 0; i < locations.length; i++) {
-  var loc = locations[i];
+  var loc = locations[i]; // get a nicer reference to our location object
+  // do the sales calculation
   loc.getSalesByHour();
-  // loc.getSalesByHour();
-  console.log(loc);
+  // figure out which element id to look for
   var listId = 'store' + (i + 1);
-  // console.log(listId);
+  // get the ul with the correct id
   var storeList = document.getElementById(listId);
+  // set ul text to location name
   storeList.textContent = loc.name;
-  // console.log(storeList);
-  // var newList = document.createElement('ul');
-  // console.log('loc.salesByHour', loc.salesByHour);
-  console.log('loc.cookieSales', loc.cookieSales);  
+  // loop through cookieSales and create a new child li for each item
   for (var j = 0; j < loc.cookieSales.length; j++) {
-    console.log('looping through sales by hour');
     var listItem = document.createElement('li');
     listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
-    // listItem.textContent = "GODDAMMIT!";
     storeList.appendChild(listItem);
   }
-  // var listArea = document.getElementById("listArea");
-  // document.appendChild(listArea, newList);
-  // docu
-  
 }
