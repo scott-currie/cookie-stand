@@ -1,6 +1,14 @@
 'use strict';
 
 var hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm', '2pm', '3pm','4pm', '5pm', '6pm', '7pm', '8pm'];
+// data for creating Store objects
+var storesData = [
+  ['1st and Pike', 23, 65, 6.3],
+  ['SeaTac Airport', 3, 24, 1.2],
+  ['Seattle Center', 11, 38, 3.7],
+  ['Capitol Hill', 20, 38, 2.3],
+  ['Alki', 23, 65, 6.3]
+];
 
 function Store(name, minCust, maxCust, avgSale) {
   this.name = name;
@@ -38,19 +46,6 @@ function Store(name, minCust, maxCust, avgSale) {
       newCell.textContent = this.cookieSales[i];
       newRow.appendChild(newCell);
     }
-    // newRow should be finished.
-
-
-
-      // storeList.textContent = loc.name;
-      // // loop through cookieSales and create a new child li for each item
-      // for (var j = 0; j < loc.cookieSales.length; j++) {
-      //   var listItem = document.createElement('li');
-      //   listItem.textContent = hours[j] + ': ' + loc.cookieSales[j];
-      //   storeList.appendChild(listItem);
-      // }
-      // listItem.textContent = 'Total: ' + Math.round(loc.totalSales);
-    
   };
 }
 
@@ -92,26 +87,13 @@ function makeTableBody() {
   salesTable.appendChild(newTableBody);
 }
 
-function makeTableFoot() {
-
-}
-
-// data for creating Store objects
-var locationData = [
-  ['1st and Pike', 23, 65, 6.3],
-  ['SeaTac Airport', 3, 24, 1.2],
-  ['Seattle Center', 11, 38, 3.7],
-  ['Capitol Hill', 20, 38, 2.3],
-  ['Alki', 23, 65, 6.3]
-];
-
 function getAllStoreSales() {
   // locations will hold the Store objects
   var locations = [];
   // stepping through locatioData
-  for (let i = 0; i < locationData.length; i++) {
+  for (let i = 0; i < storesData.length; i++) {
     // make a new store
-    var store = new Store(locationData[i][0], locationData[i][1], locationData[i][2], locationData[i][3]);
+    var store = new Store(storesData[i][0], storesData[i][1], storesData[i][2], storesData[i][3]);
     // I hoped to have the constructor for Store do this the IIFE way, but that's not working yet.
     store.getSalesByHour();
     locations.push(store);
@@ -124,6 +106,10 @@ function renderResults(stores) {
   for (var i = 0; i < stores.length; i++) {
     stores[i].render();
   }
+}
+
+function makeTableFoot() {
+
 }
 
 makeTableHead();
