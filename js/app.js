@@ -1,5 +1,36 @@
 'use strict';
 
+var store = function(name, minCust, maxCust, avgSale) {
+  this.name = name;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = avgSale;
+  this.getRandInRange = function() {
+    //random logic
+  };
+  this.render = function() {
+    //render stuff
+  };
+  this.cookieSales = []; // holds our results
+  this.getSalesByHour = (function() {
+    // loop through all 15 hours and add the randomized sales to cookieSales
+    var salesThisHour = 0;
+    for (var i = 0; i < 15; i++) {
+      salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgCookiesPerSale;
+      this.cookieSales.push(Math.round(salesThisHour));
+      this.totalSales += salesThisHour;
+    }
+  })();
+};
+
+var locationData = [
+  ['1st and Pike', 23, 65, 6.3],
+  ['SeaTac Airport', 3, 24, 1.2],
+  ['Seattle Center', 11, 38, 3.7],
+  ['Capitol Hill', 20, 38, 2.3],
+  ['Alki', 23, 65, 6.3]
+];
+
 var locations = [
   {
     name: '1st and Pike',
