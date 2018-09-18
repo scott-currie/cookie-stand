@@ -105,8 +105,6 @@ var locationData = [
   ['Alki', 23, 65, 6.3]
 ];
 
-
-
 function getAllStoreSales() {
   // locations will hold the Store objects
   var locations = [];
@@ -116,13 +114,19 @@ function getAllStoreSales() {
     var store = new Store(locationData[i][0], locationData[i][1], locationData[i][2], locationData[i][3]);
     // I hoped to have the constructor for Store do this the IIFE way, but that's not working yet.
     store.getSalesByHour();
-    // insert sales data into the HTML
-    store.render();
     locations.push(store);
   }
   return locations;
 }
 
+function renderResults(stores) {
+  // loop through each store in stores and all its render method
+  for (var i = 0; i < stores.length; i++) {
+    stores[i].render();
+  }
+}
+
 makeTableHead();
 makeTableBody();
 var stores = getAllStoreSales();
+renderResults(stores);
