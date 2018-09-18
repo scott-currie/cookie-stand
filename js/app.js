@@ -49,17 +49,17 @@ function Store(name, minCust, maxCust, avgSale) {
   };
 }
 
-function makeTableHead() {
+function makeTableHead(parentId, tableId, tHeadId) {
   // select the div where our table goes
-  var tableArea = document.getElementById('tableArea');
+  var tableArea = document.getElementById(parentId);
   // create the new table element
   var newTable = document.createElement('table');
-  newTable.setAttribute('id', 'salesTable');
+  newTable.setAttribute('id', tableId);
   //append newTable to tableArea
   tableArea.appendChild(newTable);
   // create new head element
   var newHead = document.createElement('thead');
-  newHead.setAttribute('id', 'salesTableHead');
+  newHead.setAttribute('id', tHeadId);
   //append newHead to newTable
   newTable.appendChild(newHead);
   // create an header row
@@ -77,14 +77,24 @@ function makeTableHead() {
   newHead.appendChild(newRow);
 }
 
-function makeTableBody() {
+function makeTableBody(tableId, tBodyId) {
   // get a ref to the table
-  var salesTable = document.getElementById('salesTable');
+  var salesTable = document.getElementById(tableId);
   // create a tbody
   var newTableBody = document.createElement('tbody');
-  newTableBody.setAttribute('id', 'salesTableBody');
+  newTableBody.setAttribute('id', tBodyId);
   // append newTableBody to salesTable
   salesTable.appendChild(newTableBody);
+}
+
+function makeTableFoot(tableId, tFootId) {
+  // find our table
+  var salesTable = document.getElementById(tableId);
+  // create a new foot element
+  var newFoot = document.createElement('tfoot');
+  newFoot.setAttribute('id', tFootId);
+  // append newFoot to salesTable
+  salesTable.appendChild(newFoot);
 }
 
 function getAllStoreSales() {
@@ -108,18 +118,10 @@ function renderResults(stores) {
   }
 }
 
-function makeTableFoot() {
-  // find our table
-  var salesTable = document.getElementById('salesTable');
-  // create a new foot element
-  var newFoot = document.createElement('tfoot');
-  newFoot.setAttribute('id', 'salesTableFoot');
-  // append newFoot to salesTable
-  salesTable.appendChild(newFoot);
-}
-
-makeTableHead();
-makeTableBody();
+makeTableHead('tableArea', 'salesTable', 'salesTableHead');
+makeTableBody('salesTable', 'salesTableBody');
 var stores = getAllStoreSales();
 renderResults(stores);
-makeTableFoot();
+makeTableFoot('salesTable', 'salesTableFoot');
+
+// Let's try to stretch!
