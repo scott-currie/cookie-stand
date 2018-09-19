@@ -164,14 +164,14 @@ function getAllStoreSales() {
   return locations;
 }
 
-function renderResults(stores) {
+function renderResults() {
   // loop through each store in stores and call its render method
   for (var i = 0; i < stores.length; i++) {
     stores[i].render();
   }
 }
 
-function getHourlyTotals(stores) {
+function getHourlyTotals() {
   let hourlyTotals = [];
   // loop through each hour
   for (var i = 0; i < hours.length; i++) {
@@ -221,6 +221,41 @@ function logAllStores() {
     console.log(stores[i]);
   }
 }
+
+function addNewStore(e) {
+  e.preventDefault();
+  var storeName = e.target.nameInputField.value;
+  var minCustPerHour = parseInt(e.target.minCustInputField.value);
+  var maxCustPerHour = parseInt(e.target.maxCustInputField.value);
+  var avgSales = parseFloat(e.target.avgCustInputField.value);
+  var newStore = new Store(storeName, minCustPerHour, maxCustPerHour, avgSales);
+  // calculate sales for the new store
+  newStore.getSalesByHour();
+  // update sales totals for the day
+  let hourlyTotals = getHourlyTotals();
+  // find out required staff for the new store
+  newStore.getStaffRequired();
+  // push onto the store list
+  stores.push(newStore);
+  // clear the body and foot
+  document.getElementById('salesTableBody').innerHTML = '';
+  document.getElementById('salesTableFoot').remove();
+  makeTableBody('tableArea', 'salesTable', 'salesTableHead');
+  renderResults();
+  makeTableFoot('salesTable', 'salesTableFoot', hourlyTotals);
+  clearForm();
+}
+
+function clearForm() {
+  var els = document.getElementsByTagName('input');
+  for (var i = 0; i < els.length; i++) {
+    els[i].value = '';
+  }
+}
+
+var addStoreForm = document.getElementById('addStoreForm');
+addStoreForm.addEventListener('submit', addNewStore);
+
 
 makeTableHead('tableArea', 'salesTable', 'salesTableHead');
 makeTableBody('salesTable', 'salesTableBody');
