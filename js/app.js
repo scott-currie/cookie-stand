@@ -59,13 +59,13 @@ function Store(name, minCust, maxCust, avgSale) {
     tableBody.appendChild(newRow);
     // create a new td element displaying store name
     var newCell = document.createElement('td');
-    newCell.textContent = this.name;
+    newCell.appendChild(document.createTextNode(this.name));
     // append newCell to newRow
     newRow.appendChild(newCell);
     // loop through sales
     for (var i = 0; i < this.cookieSales.length; i++) {
       newCell = document.createElement('td');
-      newCell.textContent = this.cookieSales[i];
+      newCell.appendChild(document.createTextNode(this.cookieSales[i]));
       newRow.appendChild(newCell);
     }
   };
@@ -92,7 +92,7 @@ function makeTableHead(parentId, tableId, tHeadId) {
   newRow.appendChild(newCell);
   for (var i = 0; i < hours.length; i++) {
     newCell = document.createElement('th');
-    newCell.textContent = hours[i];
+    newCell.appendChild(document.createTextNode(hours[i]));
     newRow.appendChild(newCell);
   }
   // append newRow to newHead
@@ -123,14 +123,14 @@ function makeTableFoot(tableId, tFootId, rowData) {
   newFoot.appendChild(newRow);
   // create a new cell with Totals as textContent
   var newCell = document.createElement('td');
-  newCell.textContent = 'Totals';
+  newCell.appendChild(document.createTextNode('Totals'));
   //append newCell to newRow
   newRow.appendChild(newCell);
   // loop over rowData, creating a new td for each one
   for (let i = 0; i < rowData.length; i++) {
     // make a new td element with textContent equal the current value of rowData
     newCell = document.createElement('td');
-    newCell.textContent = rowData[i];
+    newCell.appendChild(document.createTextNode(rowData[i]));
     // append newCell to newRow
     newRow.appendChild(newCell);
   }
@@ -182,13 +182,13 @@ function renderStaffingResults(tBodyId, stores) {
     tableBody.appendChild(newRow);
     // create a new td element displaying store name
     var newCell = document.createElement('td');
-    newCell.textContent = stores[i].name;
+    newCell.appendChild(document.createTextNode(stores[i].name));
     // append newCell to newRow
     newRow.appendChild(newCell);
     // loop through sales
     for (var j = 0; j < stores[i].staffRequired.length; j++) {
       newCell = document.createElement('td');
-      newCell.textContent = stores[i].staffRequired[j];
+      newCell.appendChild(document.createTextNode(stores[i].staffRequired[j]));
       newRow.appendChild(newCell);
     }
   }
