@@ -20,7 +20,7 @@ function Store(name, minCust, maxCust, avgSale) {
   };
   this.cookieSales = []; // holds our results
   this.staffRequired = []; // staff required by hour
-  this.totalSales = 0; // total for all sales today
+  this.dailyTotal = 0; // total for all sales today
   this.getSalesByHour = function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     var randCustomers = 0;
@@ -28,7 +28,7 @@ function Store(name, minCust, maxCust, avgSale) {
       randCustomers = this.getRandomInRange(this.minCust, this.maxCust);
       var salesThisHour = randCustomers * this.avgSale;
       this.cookieSales.push(Math.round(salesThisHour));
-      this.totalSales += salesThisHour;
+      this.dailyTotal += salesThisHour;
       console.log(this.minCust, this.maxCust, randCustomers, this.avgSale, salesThisHour);
     }
   };
@@ -68,6 +68,9 @@ function Store(name, minCust, maxCust, avgSale) {
       newCell.appendChild(document.createTextNode(this.cookieSales[i]));
       newRow.appendChild(newCell);
     }
+    newCell = document.createElement('td');
+    newCell.appendChild(document.createTextNode(Math.round(this.dailyTotal)));
+    newRow.appendChild(newCell);
   };
 }
 
@@ -95,18 +98,24 @@ function makeTableHead(parentId, tableId, tHeadId) {
     newCell.appendChild(document.createTextNode(hours[i]));
     newRow.appendChild(newCell);
   }
+  // if tableId is "salesTable" add an additional column
+  if (tableId === 'salesTable') {
+    newCell = document.createElement('th');
+    newCell.appendChild(document.createTextNode('Daily Total'));
+    newRow.appendChild(newCell);
+  }
   // append newRow to newHead
   newHead.appendChild(newRow);
 }
 
 function makeTableBody(tableId, tBodyId) {
   // get a ref to the table
-  var salesTable = document.getElementById(tableId);
+  var parentTable = document.getElementById(tableId);
   // create a tbody
   var newTableBody = document.createElement('tbody');
   newTableBody.setAttribute('id', tBodyId);
   // append newTableBody to salesTable
-  salesTable.appendChild(newTableBody);
+  parentTable.appendChild(newTableBody);
 }
 
 function makeTableFoot(tableId, tFootId, rowData) {
@@ -134,6 +143,10 @@ function makeTableFoot(tableId, tFootId, rowData) {
     // append newCell to newRow
     newRow.appendChild(newCell);
   }
+  // add cell for daily total
+  newCell = document.createElement('td');
+  newCell.appendChild(document.createTextNode(getDailyTotal()));
+  newRow.appendChild(newCell);
 
 }
 
@@ -152,7 +165,7 @@ function getAllStoreSales() {
 }
 
 function renderResults(stores) {
-  // loop through each store in stores and all its render method
+  // loop through each store in stores and call its render method
   for (var i = 0; i < stores.length; i++) {
     stores[i].render();
   }
@@ -170,6 +183,14 @@ function getHourlyTotals(stores) {
     hourlyTotals.push(total);
   }
   return hourlyTotals;
+}
+
+function getDailyTotal() {
+  let dailyTotal = 0;
+  for (let i in stores) {
+    dailyTotal += stores[i].dailyTotal;
+  }
+  return Math.ceil(dailyTotal);
 }
 
 function renderStaffingResults(tBodyId, stores) {
