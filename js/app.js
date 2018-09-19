@@ -19,13 +19,32 @@ function Store(name, minCust, maxCust, avgSale) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
   this.cookieSales = []; // holds our results
-  this.totalSales = 0;
+  this.staffRequired = []; // staff required by hour
+  this.totalSales = 0; // total for all sales today
   this.getSalesByHour = function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
     for (var i = 0; i < hours.length; i++) {
       var salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgSale;
       this.cookieSales.push(Math.round(salesThisHour));
       this.totalSales += salesThisHour;
+    }
+  };
+  this.getStaffRequired = function() {
+    for (let i = 0; i < this.cookieSales.length; i++) {
+      let cookies = this.cookieSales[i]; // friendly reference to cookieSales[i]
+      var staffThisHour = 0;
+      // still need 2 tossers, even if there are fewer than 20 sales
+      if (cookies <= 20) {
+        staffThisHour = 2;
+      }
+      else {
+        // divide cookies needed by 20 and round up to get required staff
+        staffThisHour = Math.ceil(cookies / 20);
+      }
+      // push staff required to array for later
+      this.staffRequired.push(staffThisHour);
+      // increment total
+      this.totalStaff += staffThisHour;
     }
   };
   this.render = function() {
@@ -151,6 +170,28 @@ function getHourlyTotals(stores) {
   return hourlyTotals;
 }
 
+function renderStaffingResults(tBodyId, stores) {
+  // get a reference to our table body
+  var tableBody = document.getElementById(tBodyId);
+  for (let i = 0;i < stores.length;i++) {
+    // create a new row element
+    var newRow = document.createElement('tr');
+    //append newRow to tableBody
+    tableBody.appendChild(newRow);
+    // create a new td element displaying store name
+    var newCell = document.createElement('td');
+    newCell.textContent = stores[i].name;
+    // append newCell to newRow
+    newRow.appendChild(newCell);
+    // loop through sales
+    for (var j = 0; j < stores[i].staffRequired.length; j++) {
+      newCell = document.createElement('td');
+      newCell.textContent = stores[i].staffRequired[j];
+      newRow.appendChild(newCell);
+    }
+  }
+}
+
 makeTableHead('tableArea', 'salesTable', 'salesTableHead');
 makeTableBody('salesTable', 'salesTableBody');
 var stores = getAllStoreSales();
@@ -159,3 +200,13 @@ var hourlyTotals = getHourlyTotals(stores);
 makeTableFoot('salesTable', 'salesTableFoot', hourlyTotals);
 
 // Let's try to stretch!
+makeTableHead('staffingTableArea', 'staffingTable', 'staffingTableHead');
+makeTableBody('staffingTable', 'staffingTableBody');
+// calculate the staff required per store, per hour
+var totalStaffByStore = [];
+for (let i = 0; i < stores.length; i++) {
+  stores[i].getStaffRequired();
+  totalStaffByStore.push(stores[i].totalStaff);
+}
+renderStaffingResults('staffingTableBody', stores);
+// makeTableFoot('staffingTable', 'staffingTableFoot', totalStaffByStore);
