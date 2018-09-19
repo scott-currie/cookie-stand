@@ -2,6 +2,10 @@ table {
     border-style: solid;
 }
 
+th {
+    font-style: bold;
+}
+
 th, td {
     /* border-style: solid; */
     background-color: #ddd;
