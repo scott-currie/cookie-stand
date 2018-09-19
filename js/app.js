@@ -15,18 +15,21 @@ function Store(name, minCust, maxCust, avgSale) {
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgSale = avgSale;
-  this.getRandomInRange = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  this.getRandomInRange = function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   };
   this.cookieSales = []; // holds our results
   this.staffRequired = []; // staff required by hour
   this.totalSales = 0; // total for all sales today
   this.getSalesByHour = function() {
     // loop through all 15 hours and add the randomized sales to cookieSales
+    var randCustomers = 0;
     for (var i = 0; i < hours.length; i++) {
-      var salesThisHour = this.getRandomInRange(this.minCust, this.maxCust) * this.avgSale;
+      randCustomers = this.getRandomInRange(this.minCust, this.maxCust);
+      var salesThisHour = randCustomers * this.avgSale;
       this.cookieSales.push(Math.round(salesThisHour));
       this.totalSales += salesThisHour;
+      console.log(this.minCust, this.maxCust, randCustomers, this.avgSale, salesThisHour);
     }
   };
   this.getStaffRequired = function() {
@@ -109,7 +112,6 @@ function makeTableBody(tableId, tBodyId) {
 function makeTableFoot(tableId, tFootId, rowData) {
   // find our table
   var table = document.getElementById(tableId);
-  console.log(table);
   // create a new foot element
   var newFoot = document.createElement('tfoot');
   newFoot.setAttribute('id', tFootId);
