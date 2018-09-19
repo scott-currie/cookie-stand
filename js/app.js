@@ -192,6 +192,13 @@ function renderStaffingResults(tBodyId, stores) {
   }
 }
 
+function logAllStores() {
+  // loop through each store in stores and all its render method
+  for (var i = 0; i < stores.length; i++) {
+    console.log(stores[i]);
+  }
+}
+
 makeTableHead('tableArea', 'salesTable', 'salesTableHead');
 makeTableBody('salesTable', 'salesTableBody');
 var stores = getAllStoreSales();
@@ -210,3 +217,5 @@ for (let i = 0; i < stores.length; i++) {
 }
 renderStaffingResults('staffingTableBody', stores);
 // makeTableFoot('staffingTable', 'staffingTableFoot', totalStaffByStore);
+
+logAllStores();
