@@ -87,11 +87,11 @@ function makeTableHead(parentId, tableId, tHeadId) {
   // create an header row
   var newRow = document.createElement('tr');
   // create empty cell
-  var newCell = document.createElement('td');
+  var newCell = document.createElement('th');
   // append empty newCell to newRow
   newRow.appendChild(newCell);
   for (var i = 0; i < hours.length; i++) {
-    newCell = document.createElement('td');
+    newCell = document.createElement('th');
     newCell.textContent = hours[i];
     newRow.appendChild(newCell);
   }
