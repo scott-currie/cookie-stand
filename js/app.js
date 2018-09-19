@@ -239,6 +239,5 @@ for (let i = 0; i < stores.length; i++) {
   totalStaffByStore.push(stores[i].totalStaff);
 }
 renderStaffingResults('staffingTableBody', stores);
-// makeTableFoot('staffingTable', 'staffingTableFoot', totalStaffByStore);
 
 logAllStores();
