@@ -6,28 +6,40 @@
 
 #fishbanner {
     /* display:inline-block; */
+    margin: 0 auto;
     text-align: center;
+    width: 90%;
 }
 
-h1 {
-    font-size: 60px;
+#navbar {
+    width: 90%;
+    margin: 0 auto;
+    /* margin-left: 0 auto; */
+    /* margin-right: 0 auto; */
 }
 
 div {
-    border-style: solid;
-    margin: 10px;
-    padding: 5px;
+    border-style: 0px solid;
+    margin: 0px;
+    padding: 0px;
 }
 
-#leftbar {
+#content {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0%;
+    width: 90%;
+}
+
+#left-bar {
     float: left;
-    width: 200px;
+    width: 20%;
     height:100%;
 }
 
 #main-area {
     float: left;
-    width: 100%;
+    width: 80%;
 }
 
 table {
