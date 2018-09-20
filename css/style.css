@@ -1,13 +1,46 @@
+* {
+    font-family: Helvetica, sans-serif;
+    background-color: maroon;
+    color: #eee;
+}
+
+#fishbanner {
+    /* display:inline-block; */
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+div {
+    border-style: solid;
+    margin: 10px;
+    padding: 5px;
+}
+
+#leftbar {
+    float: left;
+    width: 200px;
+    height:100%;
+}
+
+#main-area {
+    float: left;
+    width: 100%;
+}
+
 table {
     border-style: solid;
+    padding: 5px;
 }
 
 th {
     font-style: bold;
 }
 
-th, td {
+th, td, .firstCell {
     /* border-style: solid; */
-    background-color: #ddd;
+    background-color: #777;
     padding: 10px;
 }
