@@ -10,23 +10,27 @@
         </header>
         <main>
             <a href="index.html">Main Page</a>
-            <section id="listArea">
-                <ul id="store1">
+            <div id="tableArea">
+                <h2>Hourly Cookies Needed By Location</h2>
 
-                </ul>
-                <ul id="store2">
-                    
-                </ul>
-                <ul id="store3">
-                    
-                </ul>
-                <ul id="store4">
-                    
-                </ul>
-                <ul id="store5">
-                    
-                </ul>
-            </section>
+            </div>
+            <form id='addStoreForm'>
+                <legend>Add a New Store</legend>
+                <fieldset id="inputFields">
+                    <label for="nameInputField">Store Name</label>
+                    <input type="text" name="nameInputField">
+                    <label for="minCustInputField">Minimum Hourly Customers</label>
+                    <input type="text" name="minCustInputField">
+                    <label for="maxCustInputField">Maximum Hourly Customers</label>
+                    <input type="text" name="maxCustInputField">
+                    <label for="avgCustInputField">Average Hourly Customers</label>
+                    <input type="text" name="avgCustInputField">
+                    <button>Add Store</button>
+                </fieldset>
+            </form>
+            <div id="staffingTableArea">
+                <h2>Hourly Staff Requirements By Location</h2>
+            </div>
         </main>
         <footer>
 
