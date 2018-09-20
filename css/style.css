@@ -18,6 +18,12 @@
     /* margin-right: 0 auto; */
 }
 
+.navlink {
+    display:inline-block;
+    float:left;
+    margin-right: 60px;
+}
+
 div {
     border-style: 0px solid;
     margin: 0px;
