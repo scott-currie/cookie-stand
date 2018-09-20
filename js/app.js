@@ -1,21 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
-var store1 = {
-  name: '1st and Pike',
-  minCust: 23,
-  maxCust: 65,
-  avgCookiesPerSale: 6.3,
-  totalSales: 0,
-  getRandomInRange: function(min, max) {
-    // return an int between min and max
-    var randInt = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(min, max, randInt);
-    return randInt;
-  },
-  cookieSales: [], // holds our results
-  getSalesByHour: function() {
-=======
 var hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm', '2pm', '3pm','4pm', '5pm', '6pm', '7pm', '8pm'];
 // data for creating Store objects
 var storesData = [
@@ -38,7 +22,6 @@ function Store(name, minCust, maxCust, avgSale) {
   this.staffRequired = []; // staff required by hour
   this.dailyTotal = 0; // total for all sales today
   this.getSalesByHour = function() {
->>>>>>> 08425eb93274bd77d1b05e48dddd77210b652166
     // loop through all 15 hours and add the randomized sales to cookieSales
     var randCustomers = 0;
     for (var i = 0; i < hours.length; i++) {
