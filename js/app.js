@@ -8,7 +8,7 @@ var store1 = {
   totalSales: 0,
   getRandomInRange: function(min, max) {
     // return an int between min and max
-    var randInt = Math.ceil(Math.random() * (max - min) + min);
+    var randInt = Math.floor(Math.random() * (max - min + 1)) + min;
     console.log(min, max, randInt);
     return randInt;
   },
