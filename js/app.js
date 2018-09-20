@@ -109,6 +109,11 @@ function makeTableHead(parentId, tableId, tHeadId) {
 }
 
 function makeTableBody(tableId, tBodyId) {
+  // If the body already exists, that's old data. We'll clear it
+  if (document.getElementById(tBodyId)) {
+    console.log('tBodyId');
+    document.getElementById(tBodyId).remove();
+  }
   // get a ref to the table
   var parentTable = document.getElementById(tableId);
   // create a tbody
@@ -119,6 +124,10 @@ function makeTableBody(tableId, tBodyId) {
 }
 
 function makeTableFoot(tableId, tFootId, rowData) {
+  // remove the footer element if it already exists
+  if (document.getElementById(tFootId)) {
+    document.getElementById(tFootId).remove();
+  }
   // find our table
   var table = document.getElementById(tableId);
   // create a new foot element
@@ -193,7 +202,11 @@ function getDailyTotal() {
   return Math.ceil(dailyTotal);
 }
 
-function renderStaffingResults(tBodyId, stores) {
+function renderStaffingResults(tBodyId) {
+  // clear the existing table body if it already exists
+  if (document.getElementById(tBodyId)) {
+    document.getElementById(tBodyId).innerHTML = '';
+  }  
   // get a reference to our table body
   var tableBody = document.getElementById(tBodyId);
   for (let i = 0;i < stores.length;i++) {
@@ -237,13 +250,11 @@ function addNewStore(e) {
   newStore.getStaffRequired();
   // push onto the store list
   stores.push(newStore);
-  // clear the body and foot
-  document.getElementById('salesTableBody').innerHTML = '';
-  document.getElementById('salesTableFoot').remove();
-  makeTableBody('tableArea', 'salesTable', 'salesTableHead');
+  makeTableBody('salesTable', 'salesTableBody');
   renderResults();
   makeTableFoot('salesTable', 'salesTableFoot', hourlyTotals);
   clearForm();
+  renderStaffingResults('staffingTableBody');
 }
 
 function clearForm() {
@@ -273,6 +284,6 @@ for (let i = 0; i < stores.length; i++) {
   stores[i].getStaffRequired();
   totalStaffByStore.push(stores[i].totalStaff);
 }
-renderStaffingResults('staffingTableBody', stores);
+renderStaffingResults('staffingTableBody');
 
 logAllStores();
