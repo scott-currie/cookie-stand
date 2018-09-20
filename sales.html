@@ -5,11 +5,16 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header>
-            <h1>Pat's Salmon Cookies - Sales</h1>
-        </header>
+            <header>
+                    <div id=fishbanner>
+                        <img src="img/salmon.png">
+                        <h1>Sales Page</h1>
+                    </div>
+                    <div id="navbar">
+                      <a href="index.html">Sales Page</a>
+                    </div>
+                </header>
         <main>
-            <a href="index.html">Main Page</a>
             <div id="tableArea">
                 <h2>Hourly Cookies Needed By Location</h2>
 
@@ -17,14 +22,22 @@
             <form id='addStoreForm'>
                 <legend>Add a New Store</legend>
                 <fieldset id="inputFields">
-                    <label for="nameInputField">Store Name</label>
-                    <input type="text" name="nameInputField">
-                    <label for="minCustInputField">Minimum Hourly Customers</label>
-                    <input type="text" name="minCustInputField">
-                    <label for="maxCustInputField">Maximum Hourly Customers</label>
-                    <input type="text" name="maxCustInputField">
-                    <label for="avgCustInputField">Average Hourly Customers</label>
-                    <input type="text" name="avgCustInputField">
+                    <label for="nameInputField">Store Name
+                        <input type="text" name="nameInputField">
+                    </label>
+                    <br />
+                    <label for="minCustInputField">Minimum Hourly Customers
+                        <input type="text" name="minCustInputField">
+                    </label>
+                    <br />
+                    <label for="maxCustInputField">Maximum Hourly Customers
+                        <input type="text" name="maxCustInputField">
+                    </label>
+                    <br />
+                    <label for="avgCustInputField">Average Hourly Customers
+                        <input type="text" name="avgCustInputField">
+                    </label>
+                    <br />
                     <button>Add Store</button>
                 </fieldset>
             </form>
