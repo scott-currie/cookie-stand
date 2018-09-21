@@ -6,27 +6,48 @@
     </head>
     <body>
         <header>
-            <h1>Pat's Salmon Cookies - Sales</h1>
-        </header>
+            <div id=fishbanner>
+                <img src="img/salmon.png">
+                <h1>Sales Page</h1>
+            </div>
+            <div id="navbar">
+                    <ul>
+                        <li class="navlink"><a href="index.html">Home</a></li>
+                        <li class="navlink"><a href="sales.html">Sales Page</a></li>
+                        <li class="navlink"><a href="store.html">Store</a></li>
+                        <li class="navlink"><a href="gallery.html">Gallery</a></li>
+                    </ul>
+            </header>
         <main>
-            <a href="index.html">Main Page</a>
-            <section id="listArea">
-                <ul id="store1">
+            <div id="tableArea">
+                <h2>Hourly Cookies Needed By Location</h2>
 
-                </ul>
-                <ul id="store2">
-                    
-                </ul>
-                <ul id="store3">
-                    
-                </ul>
-                <ul id="store4">
-                    
-                </ul>
-                <ul id="store5">
-                    
-                </ul>
-            </section>
+            </div>
+            <form id='addStoreForm'>
+                <legend>Add a New Store</legend>
+                <fieldset id="inputFields">
+                    <label for="nameInputField">Store Name
+                        <input type="text" name="nameInputField">
+                    </label>
+                    <br />
+                    <label for="minCustInputField">Minimum Hourly Customers
+                        <input type="text" name="minCustInputField">
+                    </label>
+                    <br />
+                    <label for="maxCustInputField">Maximum Hourly Customers
+                        <input type="text" name="maxCustInputField">
+                    </label>
+                    <br />
+                    <label for="avgCustInputField">Average Hourly Customers
+                        <input type="text" name="avgCustInputField">
+                    </label>
+                    <br />
+                    <button>Add Store</button>
+                </fieldset>
+            </form>
+            <div id="staffingTableArea">
+                <h2>Hourly Staff Requirements By Location</h2>
+            </div>
         </main>
         <footer>
 

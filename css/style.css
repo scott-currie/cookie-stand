@@ -1,0 +1,64 @@
+* {
+    font-family: Helvetica, sans-serif;
+    background-color: maroon;
+    color: #eee;
+}
+
+#fishbanner {
+    /* display:inline-block; */
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+}
+
+#navbar {
+    width: 90%;
+    margin: 0 auto;
+    /* margin-left: 0 auto; */
+    /* margin-right: 0 auto; */
+}
+
+.navlink {
+    display:inline-block;
+    float:left;
+    margin-right: 60px;
+}
+
+div {
+    border-style: 0px solid;
+    margin: 0px;
+    padding: 0px;
+}
+
+#content {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0%;
+    width: 90%;
+}
+
+#left-bar {
+    float: left;
+    width: 20%;
+    height:100%;
+}
+
+#main-area {
+    float: left;
+    width: 80%;
+}
+
+table {
+    border-style: solid;
+    padding: 5px;
+}
+
+th {
+    font-style: bold;
+}
+
+th, td, .firstCell {
+    /* border-style: solid; */
+    background-color: #777;
+    padding: 10px;
+}
