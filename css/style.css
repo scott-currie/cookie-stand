@@ -5,22 +5,19 @@
 }
 
 #fishbanner {
-    /* display:inline-block; */
     margin: 0 auto;
     text-align: center;
-    width: 90%;
+    width: 100%;
 }
 
 #navbar {
     width: 90%;
     margin: 0 auto;
-    /* margin-left: 0 auto; */
-    /* margin-right: 0 auto; */
 }
 
 .navlink {
     display:inline-block;
-    float:left;
+    /* float:left; */
     margin-right: 60px;
 }
 
