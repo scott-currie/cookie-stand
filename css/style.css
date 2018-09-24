@@ -22,6 +22,7 @@ h3 {
     margin-top: .25em;
 }
 
+
 /* Common banner for all pages */
 #fishbanner {
     margin: 20px auto;
@@ -36,6 +37,9 @@ h3 {
     width: 100%;
 }
 
+#navlist {
+    list-style: none;
+}
 
 li {
     float: left;
@@ -84,6 +88,7 @@ th {
 
 th, td, .firstCell {
     background-color: #777;
+    color: #eee;
     margin: 2px;
     padding: 10px;
 }
