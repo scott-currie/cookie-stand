@@ -1,28 +1,54 @@
 * {
-    font-family: Helvetica, sans-serif;
-    background-color: maroon;
-    color: #eee;
+    font-family: 'Anton', sans-serif;
+    background-color:#ddd;
 }
 
+/* Common banner for all pages */
 #fishbanner {
+    font-size: 120px;
     margin: 0 auto;
     text-align: center;
     width: 100%;
 }
 
+
 #navbar {
-    width: 90%;
-    margin: 0 auto;
+    background-color: #777;
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 100%;
 }
 
-.navlink {
-    display:inline-block;
-    /* float:left; */
-    margin-right: 60px;
+/* div that holds the list */
+#navlist {
+    /* display: block;
+    background-color: #777;
+    margin: 0px;
+    padding: 0px;
+    width: 100%; */
+
+}
+
+li {
+    /* position: relative; */
+    float: left;
+    /* height: 100%;
+    margin-right: 60px; */
+    /* padding: 4px; */
+
+}
+
+li a {
+    background-color: #777;
+    color: white;
+    display: block;
+    padding: 8px;
+    font-family: 'Anton', sans-serif;
+    text-decoration: none;
 }
 
 div {
-    border-style: 0px solid;
+    /* border-style: 0px solid; */
     margin: 0px;
     padding: 0px;
 }
